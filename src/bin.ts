@@ -56,7 +56,7 @@ const context: IContext = {
 
 let commander = new Command();
 commander.version(pkg.version, '-v, --version')
-    .description(`Android-Js Builder: ${pkg.version}`, {});
+    .description(`[DMG] Android-Js Builder: ${pkg.version}`, {});
 
 
 commander
