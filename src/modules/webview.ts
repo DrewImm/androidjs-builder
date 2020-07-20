@@ -501,7 +501,7 @@ export class Webview implements Interfaces.IBuilderModule {
                     this.updateFiles((error) => {
                         updateTheme(this.env, (err) => {
                             this.rebuildApk((error) => {
-                                this.sign(() => {
+                                //this.sign(() => {
                                     try {
                                         // checking if user defined the dist path
                                         if (this.env.project.package['dist-path']) {
@@ -510,10 +510,10 @@ export class Webview implements Interfaces.IBuilderModule {
                                                 dist = path.join(this.env.project.dir, dist);
                                             }
                                             if (!fs.existsSync(dist)) fs.mkdirSync(dist);
-                                            fs.copyFileSync(path.join(this.env.builder.cache, this.env.project.package.name + '-aligned-debugSigned.apk'), path.join(dist, this.env.project.package.name + '.apk'));
+                                            fs.copyFileSync(path.join(this.env.builder.cache, this.env.project.package.name + '.apk'), path.join(dist, this.env.project.package.name + '.apk'));
                                         } else {
                                             if (!fs.existsSync(projectDistFolderPath)) fs.mkdirSync(projectDistFolderPath);
-                                            fs.copyFileSync(path.join(this.env.builder.cache, this.env.project.package.name + '-aligned-debugSigned.apk'), path.join(projectDistFolderPath, this.env.project.package.name + '.apk'));
+                                            fs.copyFileSync(path.join(this.env.builder.cache, this.env.project.package.name + '.apk'), path.join(projectDistFolderPath, this.env.project.package.name + '.apk'));
                                         }
                                         // check if internet is available
                                         getUpdateMessage();
@@ -521,7 +521,7 @@ export class Webview implements Interfaces.IBuilderModule {
                                         console.log("failed to move apk to dist folder");
                                         process.exit();
                                     }
-                                });
+                                //});
                             });
                         });
                     });
